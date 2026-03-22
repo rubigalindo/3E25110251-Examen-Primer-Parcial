@@ -1,0 +1,79 @@
+@startuml
+Class Vehiculo
+Class Auto
+Class Moto
+Class NumeroPlaca
+Class Camioneta
+Class Marca
+Class Modelo
+Class AñoFabricacion
+Class PrecioAlquiler
+Class Cliente
+Auto --|> Vehiculo
+Moto --|> Vehiculo
+Camioneta --|> Vehiculo
+Vehiculo *-- NumeroPlaca
+Vehiculo *-- Marca
+Vehiculo *-- Modelo
+Vehiculo *-- AñoFabricacion
+Vehiculo *-- PrecioAlquiler
+Cliente o-- "1,2,3"Vehiculo
+Class Vehiculo{
+-NumeroPlaca
+-Marca
+-Modelo
+-AñoFabricacion
+-PrecioAlquiler
+}
+Class Camioneta{
+-CapacidadCarga
+}
+Class Moto{
+-Cilindrada
+}
+Class Cliente{
+-ID
+-Nombre
+-NumeroTelefono
++Alquilar:Vehiculo(1,3)
+}
+Class ID
+Class Nombre
+Class NumeroTelefono
+Cliente *-- ID
+Cliente *-- Nombre
+Cliente *-- NumeroTelefono
+Cliente o-- Alquiler
+Class Alquiler
+Class Codigo
+Class FechaInicio
+Class FechaFin
+Class Costo
+Class Activo
+Class Finalizado
+Alquiler *-- Costo
+Alquiler *-- Codigo
+Alquiler *-- FechaInicio
+Alquiler *-- FechaFin
+Alquiler *-- Activo
+Alquiler *-- Finalizado
+Class Alquiler{
+-Codigo
+-FechaInicio
+-FechaFin
+-Costo
+-Activo
+-Finalizado
+}
+Class Sistema
+Sistema *-- Cliente
+Sistema *-- Alquiler
+Alquiler *-- Vehiculo
+Class Sistema{
++Agregar(Cliente)
++Agregar(Vehiculo)
++Registar(Alquiler)
++Finalizar(Alquiler)
++Finalizado:Alquilar
+}
+@enduml
